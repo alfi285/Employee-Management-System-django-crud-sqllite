@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Employee</title>
+    <link rel="stylesheet" href="{% static 'css/edit.css' %}">
+</head>
+<body>
+  <div class="edit-container">
+    <h2>Edit Employee</h2>
+     {% if data.image %}
+        <div class="image-preview">
+          <label>Current Image:</label><br>
+          <img src="{{ data.image.url }}" alt="Employee Image" height="200" width="180">
+        </div>
+      {% endif %} 
+    <form action="{% url 'updateemployee' data.empid %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="hidden" name="empid" value="{{data.empid}}">
+        <input type="text" name="ename" value="{{data.ename}}" placeholder="Employee Name" required>
+        <input type="text" name="desg" value="{{data.desg}}" placeholder="Designation" required>
+        <input type="number" name="salary" value="{{data.salary}}" placeholder="Salary" required>
+
+ <!--  Show existing image preview -->
+     
+
+        <input type="file" name="image">
+        <input type="submit" value="Update Employee">
+    </form>
+
+   
+    <a href="/home">Home</a> |
+    <a href="/addemployee">Add Employee</a> |
+    <a href="/viewemployee">View Employees</a> |
+    <a href="/logout">Logout</a>
+  </div>
+</body>
+</html>
