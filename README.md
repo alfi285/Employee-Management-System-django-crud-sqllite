@@ -41,27 +41,8 @@ Edit Employee
 
 ---
 
-## 📂 Project Structure
-employee_mgmt/
-├── myapp/
-│ ├── migrations/
-│ ├── templates/
-│ │ ├── login.html
-│ │ ├── signup.html
-│ │ ├── Home.html
-│ │ ├── addemployee.html
-│ │ ├── viewemployee.html
-│ │ └── editemployee.html
-│ ├── forms.py
-│ ├── models.py
-│ ├── views.py
-│ └── urls.py
-├── employee_mgmt/ (project folder)
-├── media/ (uploaded images)
-├── static/ (if needed)
-├── db.sqlite3
-├── manage.py
-└── README.md
+<img width="318" height="552" alt="Screenshot 2025-07-18 231231" src="https://github.com/user-attachments/assets/c25c6d27-f000-4d4b-bfa0-1eafa9c51ec0" />
+
 .
 
 ---
