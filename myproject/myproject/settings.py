@@ -14,7 +14,7 @@ DEBUG = False if os.environ.get('RENDER') == 'true' else True
 if os.environ.get('RENDER'):
     ALLOWED_HOSTS = [os.environ.get('RENDER_EXTERNAL_HOSTNAME')]
 else:
-    ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+    ALLOWED_HOSTS = ['*']
 
 # Application definition
 INSTALLED_APPS = [
