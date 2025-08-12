@@ -12,7 +12,7 @@ DEBUG = False if os.environ.get('RENDER') == 'true' else True
 
 # Allowed hosts setup
 if os.environ.get('RENDER'):
-    ALLOWED_HOSTS = [os.environ.get('RENDER_EXTERNAL_HOSTNAME')]
+    ALLOWED_HOSTS = [os.environ.get('RENDER_EXTERNAL_HOSTNAME')] if os.environ.get('RENDER') else ['localhost', '127.0.0.1']
 else:
     ALLOWED_HOSTS = ['*']
 
@@ -40,6 +40,11 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'myproject.urls'
 
+# Database
+DATABASES = {
+    'default': dj_database_url.config(conn_max_age=600, default='sqlite:///' + str(BASE_DIR / 'db.sqlite3'))
+}
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -58,10 +63,10 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'myproject.wsgi.application'
 
-# Database
-DATABASES = {
-    'default': dj_database_url.config(default='sqlite:///' + str(BASE_DIR / 'db.sqlite3'))
-}
+# # Database
+# DATABASES = {
+#     'default': dj_database_url.config(default='sqlite:///' + str(BASE_DIR / 'db.sqlite3'))
+# }
 
 # Password validators
 AUTH_PASSWORD_VALIDATORS = [
